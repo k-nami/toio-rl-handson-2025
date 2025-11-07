@@ -5,7 +5,7 @@
 
 ## 使い方
 
-コードは虫食い状態になっているため，そのままでは動きません．
+コードは穴開き状態になっているため，そのままでは動きません．
 （#TODO）の部分をご自身で書いてください．
 
 ## 準備
@@ -62,3 +62,9 @@ cd toio_RL/p1_toio
 
 python connection.py
 ```
+
+## 補足資料
+
+- [パッケージの使用例](supplementary/cheetsheet.md)
+- [デバッグ向けTips](supplementary/debugtips.md)
+

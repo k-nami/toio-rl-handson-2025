@@ -60,6 +60,9 @@ class OnlineEnv:
             for name in names
         ]
 
+        self.observation_space = Discrete((grid_width * grid_height) ** 2)
+        self.action_space = Discrete(len(Action))
+
         #TODO: 初期化処理
 
         # 乱数生成器
