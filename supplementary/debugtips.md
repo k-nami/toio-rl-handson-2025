@@ -1,7 +1,7 @@
 
 # デバッグ向けのTips
 
-## f-string
+## f文字
 
 ```python
 >>> x = 10
@@ -11,7 +11,7 @@
 x=10
 ```
 
-## Logging
+## logger
 
 - 基本は`print`だが開発ではコードを汚さない方法が好まれる
 
@@ -32,7 +32,7 @@ logger.critical("Abort!")
 logging.basicConfig(level=logging.INFO)
 ```
 
-## Type hint
+## type hint
 
 - Pythonは，変数に代入できるデータ型の指定が不要
 - 変数のデータ型をコード上で記しておくための記法
