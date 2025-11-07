@@ -1,13 +1,13 @@
 
 # 環境構築
 
-演習に必要な環境を揃えるための手順書です．不明点はTAまたは教員に質問してください．
+演習に必要な環境構築の手順書です．不明点はTAまたは教員に質問してください．
 
 ## 要約
 - toioを操作したい場合，Bluetoothつきの計算機を用意してください
-- VSCode，Python3.11.9，venv（またはconda）を準備してください
+- VSCode（拡張機能「Python」も推奨），Python3.11.9，venv（またはAnaconda）を準備してください
 - GitHubから演習コードをダウンロードしてください
-- 演習コード内のrequirements.txtまたはenvironment.ymlで仮想環境を構築してください
+- 演習コード内の`requirements.txt`または`environment.yml`で仮想環境を構築してください
 
 ## 内容
 - まず，[計算機ごとの必要作業](#計算機ごとの必要作業)を確認
@@ -21,25 +21,25 @@
 ---
 ## 計算機ごとの必要作業
 
-| 使用する計算機 | Belutooth | VSCode（推奨） | Python（3.11.9推奨） | 演習コード | Python仮想環境（推奨） | 
+| 使用する計算機 | Belutooth | VSCode（推奨） | Python（3.11.9を推奨） | 演習コード | Python仮想環境（推奨） | 
 |:--|:--|:--|:--|:--|:--|
-| CSE（デスクトップ，Ubuntu） | なし | インストール済み | インストール済み（3.10.X） | なし | Anacondaあり |
-| CSE（ノートパソコン, Ubuntu） | あり |  インストール済み | インストール済み（3.10.X） | なし | Anacondaあり |
+| CSE（デスクトップ，Ubuntu） | なし | インストール済み | インストール済み（3.10.X） | なし | Anacondaインストール済み |
+| CSE（ノートパソコン, Ubuntu） | あり |  インストール済み | インストール済み（3.10.X） | なし | Anacondaインストール済み |
 | CSE（ノートパソコン，Windows） | あり | インストール済み | なし | なし | なし |
 | 個人（Windows）| 要確認 | 要確認 | 要確認 | なし | 要確認
 | 個人（mac）| 要確認 | 要確認 | 要確認 | なし | 要確認
 | 個人（Linux）| 要確認 | 要確認 | 要確認 | なし | 要確認
 
 - （推奨）と書かれてない項目は「必須」です
-  - toioを動かすには，Bluetoothが必要です
+  - toioを動かすには，BluetoothとPython（3.11.9推奨）が必要です
   - 演習コードは全員が準備する必要があります
 - （推奨）を前提に演習を進めます
   - 推奨以外の方法でも動く可能性はありますが，動作保証はありません
 - 個人PCの場合は，それぞれインストール済みか確認してください
   - インストーラー/コードのダウンロードにインターネット接続が必要です
 
-検証済みの環境（2025/10～2025/11確認）
-- CSE (Windows)
+検証済みの環境（2025/11時点）
+- CSE (Windows11)
 - CSE (Ubuntu22.04, MATE)
 - Windows11 (Education, 24H2)
 - Mac (macOS Sequoia, 15.6)
@@ -48,7 +48,9 @@
 ---
 ## Python
 
-### Python：インストール済みか確認
+- 推奨：3.11.9
+
+### インストール済みか確認
 
 - 下記コマンドで`Python <Version>`が表示されない場合は「インストール手順」へ
 
@@ -70,7 +72,7 @@ Python 3.11.9
 Python 3.10.12
 ```
 
-### Python：インストール手順
+### インストール手順
 
 - インストーラーのありか
   - 「download python」でインターネット検索
@@ -86,8 +88,7 @@ Python 3.10.12
 - インストーラーをダブルクリック→下部チェックボックスを確認して「Install Now」
   - **注意：CSEノートパソコン（Windows）は「Use admin privileges when installing py.exe」を外す**
   - <img src="figs/win-python-installer2.png" width="600px"/>
-  - （Macの場合）下記メッセージには「同意する」
-  - <img src="figs/mac-python.png" width="500px"/>
+
 
 - 「Disable path lenght limit」を押して終了
   - **注意：CSEノートパソコン（Windows）は実行できないため，「Close」を押して終了**
@@ -98,11 +99,13 @@ Python 3.10.12
 - インストーラー（例：python-3.11.9-macos11.pkg）を立ち上げる
 - 「続ける」→「同意する」→「インストール」で完了
   - <img src="figs/mac-python_install1.png" width="500px"/>
+- 下記メッセージには「同意する」
+  - <img src="figs/mac-python.png" width="500px"/>
 
 ---
 ## VSCode
 
-### VSCode：インストール済みか確認
+### インストール済みか確認
 
 #### Windowsの場合
 
@@ -118,7 +121,7 @@ Python 3.10.12
 - 左上の「メニュー」から「visual studio code」を検索
 - <img src="figs/css_ubuntu_ui.png" width="200px"/>
 
-### VSCode：インストール手順
+### インストール手順
 
 - インストーラーのありか
   - 「download VScode」でインターネット検索
@@ -127,7 +130,8 @@ Python 3.10.12
 #### Windowsの場合
 
 - インストーラーをダブルクリック
-  - 「追加タスクの選択」の推奨設定．この他は「次へ」
+  - 案内に従って「次へ」
+  - 下記画像は「追加タスクの選択」の推奨設定
   - <img src="figs/vscode-install-option.png" width="500px"/>
 
 #### macの場合
@@ -192,7 +196,7 @@ Creates virtual Python environments in one or more target directories.
 
 #### CSE（Ubuntu）の場合
 
-- venvが使えないため、condaで作成します
+- venvが使えないため、Anacondaを使用
 - 下記コマンドでバージョンが表示されることを確認してください
 
 ```
@@ -204,8 +208,9 @@ conda 4.14.0
 
 ### 仮想環境の作成
 
-#### venv
-```
+#### venvの場合
+
+```bash
 python3.11 -m venv venv
 
 # mac/ubuntuの場合
@@ -216,7 +221,20 @@ venv¥Script¥activate
 pip install -r requirements.txt
 ```
 
-#### conda
+- 使い方
+```bash
+# 環境に入るとき
+
+# mac/ubuntuの場合
+source venv/bin/activate
+# windowsの場合
+venv¥Script¥activate
+
+# 環境から出るとき
+deactivate
+```
+
+#### Anacondaの場合
 
 - 下記コマンドで作成（5分以上かかります）
 
@@ -232,12 +250,12 @@ base                     /usr/local/anaconda3
 python311                /usr/local/anaconda3/envs/python311
 ```
 
-- 環境に入るとき
+- 使い方
 ```bash
+# 環境に入るとき
 conda activate toio_rl
-```
-- 環境から出るとき
-```bash
+
+# 環境から出るとき
 conda deactivate
 ```
 
@@ -249,7 +267,7 @@ conda deactivate
 
 <img src="figs/mac-bluetooth.png" width="300px"/>
 
-- 許可していない場合，コード実行時に下記のようなエラーが出ます
+- 許可していない場合，コード実行時に下記のようなエラーが出ることがあります
 
 ```bash
 (venv) <User>@<Host> <Directory> % python connect_toio.py 
