@@ -299,3 +299,12 @@ package using the following command.
 You may need to use sudo with that command.  After installing the python3-venv
 package, recreate your virtual environment.
 ```
+
+## CSE(Windows)でPythonがインストールできない/起動しなくなった
+
+- まずは，インストーラーでmodifyや再インストールを試してください
+
+- 最悪時の対処法：組み込み版を使用
+  - https://note.com/maru_5251/n/n6664cef94f8d
+  - 注意：通常のインストールより手間がかかります
+
