@@ -21,6 +21,7 @@ python -m venv venv
 # 仮想環境に入る
 # windowsの場合
 venv\Scripts\activate
+
 # mac/ubuntuの場合
 source venv/bin/activate
 
@@ -35,7 +36,7 @@ deactivate
 conda env create -f environment.yml
 
 # doneと表示されたのち、下記コマンドで「toio_rl」があればOK
-<User>@<Host>:~ > conda env list
+conda env list
 # conda environments:
 #
 toio_rl               *  /home/staff/<User>/.conda/envs/toio_rl
@@ -43,12 +44,11 @@ base                     /usr/local/anaconda3
 python311                /usr/local/anaconda3/envs/python311
 
 # 仮想環境に入る
-<User>@<Host>:~ > conda activate toio_rl
+conda activate toio_rl
 (toio_rl) <User>@<Host>:~ > 
 
 # 仮想環境から出る
-(toio_rl) <User>@<Host>:~ > conda deactivate
-<User>@<Host>:~ > 
+conda deactivate
 ```
 
 ## 実行方法
