@@ -43,9 +43,8 @@ toio_rl               *  /home/staff/<User>/.conda/envs/toio_rl
 base                     /usr/local/anaconda3
 python311                /usr/local/anaconda3/envs/python311
 
-# 仮想環境に入る
+# 仮想環境に入る（実行後，冒頭に(toio_rl) と表示されればOK）
 conda activate toio_rl
-(toio_rl) <User>@<Host>:~ > 
 
 # 仮想環境から出る
 conda deactivate
