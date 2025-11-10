@@ -274,6 +274,8 @@ source venv/bin/activate
 venv\Scripts\activate
 # windows（powershell）の場合
 venv\Scripts\activate.ps1
+# ただしwindows(powershell)の初回は下記
+PowerShell Set-ExecutionPolicy RemoteSigned
 
 # パッケージをインストール
 pip install -r requirements.txt
