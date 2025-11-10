@@ -214,17 +214,22 @@ VSCodeのterminalで，
 
 使用している計算機，Pythonのインストール状況によって，いくつかの場合に分かれます．
 
-- A. CSE（Ubuntu）の場合　→[Anacondaを使う](#anacondaを使う場合)
+- A. CSE（Ubuntu）の場合
+  →[Anacondaを使う](#anacondaを使う場合)
 - B. Windowsかつ，コマンド`Python -V`で
-  - B-1. `Python 3.11.9`と表示される場合 →[venvを使う](#venvを使う場合)
-  - B-2. 表示されず，コマンド`py -3.11 -V`で`Python 3.11.9`と表示される場合  →[pythonをpy -3.11に読み替えながらvenvを使う](#pyでvenvを使う場合)
+  - B-1. `Python 3.11.9`と表示される場合
+    →[venvを使う](#venvを使う場合)
+  - B-2. 表示されず，コマンド`py -3.11 -V`で`Python 3.11.9`と表示される場合
+    →[pythonをpy -3.11に読み替えながらvenvを使う](#venvを使う場合)
   - B-3. `Python`と表示される場合
-    - パスが通っていません．一度，再インストールしてください
+    →パスが通っていません．一度，再インストールしてください
 - C. その他（mac, linux）かつ，コマンド`Python -V`で
-  - C-1. `Python 3.11.9`と表示される場合 →[venvを使う](#venvを使う場合)
-  - C-2. 表示されず，コマンド`Python3.11 -V`で`Python 3.11.9`と表示される場合 →[pythonをpython3.11に読み替えながらvenvを使う](#pyでvenvを使う場合)
+  - C-1. `Python 3.11.9`と表示される場合
+    →[venvを使う](#venvを使う場合)
+  - C-2. 表示されず，コマンド`Python3.11 -V`で`Python 3.11.9`と表示される場合
+    →[pythonをpython3.11に読み替えながらvenvを使う](#venvを使う場合)
   - C-3. その他
-    - Pythonがインストール済みかつパスが通っているか確認してください
+    →Pythonがインストール済みかつパスが通っているか確認してください
 
 ### Anacondaを使う場合
 
