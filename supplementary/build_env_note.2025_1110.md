@@ -102,36 +102,6 @@ Python 3.10.12
 - 下記メッセージには「同意する」
   - <img src="figs/mac-python.png" width="500px"/>
 
-### インストール後の確認
-
-VSCodeのterminalで，
-もし，`python -V`で`Python 3.11.9`と出てこない場合
-
-- まず，terminalを一旦閉じて，開き直してください（VSCodeの再起動でも可）
-
-その後，`python -V`で
-
-- 別のバージョンが表示されているとき，
-
-  - 以前，別のバージョンをインストールしていた可能性があります
-
-  - （ubuntuの場合）
-    - `python3.11 -V`を試してください
-
-  - (Windowsの場合)
-    - `py -3.11 -V`を試してください
-    - もし，バージョンが表示された場合，コマンドの「python」を「py -3.11」に逐一読み替えてください
-      - ex) `python -m venv venv`→`py -3.11 -m venv vnev`
-      - ex) `python connect_toio.py`→`py -3.11 connect_toio.py`
-    - 表示されない場合，一度インストーラーを開き，「Modify」→「Next」→「Add Python to environement variables」にチェックして「Install」
-      - <img src="figs/win-python-modify.png" width="300px"/>
-
-- `Python`のみが表示される（Windows）
-
-  - パス設定に失敗している可能性があります．
-  - 一度インストーラーを開き，「Modify」→「Next」→「Add Python to environement variables」にチェックして「Install」
-      - <img src="figs/win-python-modify.png" width="300px"/>
-
 ---
 ## VSCode
 
@@ -191,59 +161,97 @@ VSCodeのterminalで，
   - <img src="figs/win-github-open2.png" width="400px"/>
 
 - VSCodeで開く
-  - VSCodeを立ち上げる→左上「File」の「Open Folder...」で，展開したフォルダを選択
-  <!-- - （方法1）VSCodeを立ち上げる→左上「File」の「Open Folder...」で，展開したフォルダを選択
+  - （方法1）VSCodeを立ち上げる→左上「File」の「Open Folder...」で，展開したフォルダを選択
   - （方法2，Windowsの場合）
     - `README.md`のあるフォルダに入ってから余白で右クリック「その他オプションを確認」
     - <img src="figs/win-github-open3.png" width="400px"/>
     - 「Codeで開く」
-    - <img src="figs/win-github-open4.png" width="400px"/> -->
+    - <img src="figs/win-github-open4.png" width="400px"/>
 
 - VSCodeで開いた状態
   - <img src="figs/win-vscode-python.png" width="600px"/>
-
-- terminalが開かれていない場合は，「Terminal」→「New Terminal」
+  - terminalが開かれていない場合は，「Terminal」→「New Terminal」
   - <img src="figs/win-vscode-terminal.png" width="600px"/>
-
-- Windowsの場合，Terminalにはコマンドプロンプトを推奨
-  - <img src="figs/windows-vscode-terminal.png" width="300px"/>
 
 
 ---
 ## Python仮想環境
 
-使用している計算機，Pythonのインストール状況によって，いくつかの場合に分かれます．
+### 仮想環境：インストール済みか確認
 
-- A. CSE（Ubuntu）の場合　→[Anacondaを使う](#anacondaを使う場合)
-- B. Windowsで，コマンド`Python -V`で
-  - B-1. `Python 3.11.9`と表示される場合 →[venvを使う](#venvを使う場合)
-  - B-2. 表示されず，コマンド`py -3.11 -V`で`Python 3.11.9`と表示される場合  →[pythonをpy -3.11に読み替えながらvenvを使う](#pyでvenvを使う場合)
-  - `Python`と表示される場合
-    - パスが通っていません．一度，再インストールしてください
-- C. その他（mac, linux），コマンド`Python -V`で
-  - C-1. コマンド`Python 3.11.9`と表示される場合 →[venvを使う](#venvを使う場合)
-  - C-2. 表示されず，コマンド`Python3.11 -V`で`Python 3.11.9`と表示される場合 →[pythonをpython3.11に読み替えながらvenvを使う](#pyでvenvを使う場合)
-  - その他
-    - Pythonがインストール済みかつパスが通っているか確認してください
+#### CSE（Ubuntu）以外の場合
 
-### Anacondaを使う場合
+- venvを使用します
+- VSCodeのterminalで下記を実行して，もし表示されない場合は，
+  - terminalを再立ち上げ（Pythonインストール前にVSCodeを立ち上げていた場合，動作しないことがあります）
+  - それでも表示されなければ，Pythonを再インストール
 
 ```bash
-# インストール済みか確認
-conda -V
-conda 4.14.0
+<User>@<HOST>:~$ python3.11 -m venv -h
+usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear] [--upgrade] [--without-pip] [--prompt PROMPT] [--upgrade-deps] ENV_DIR [ENV_DIR ...]
 
-# 環境を作成（通信環境によっては，5分以上かかります）
+Creates virtual Python environments in one or more target directories.
+...
+```
+
+#### CSE（Ubuntu）の場合
+
+- venvが使えないため、Anacondaを使用
+- 下記コマンドでバージョンが表示されることを確認してください
+
+```
+<User>@<Host>:~ > conda -V
+conda 4.14.0
+```
+
+
+
+### 仮想環境の作成
+
+#### venvの場合
+
+```bash
+python3.11 -m venv venv
+
+# mac/ubuntuの場合
+source venv/bin/activate
+# windowsの場合
+venv¥Script¥activate
+
+pip install -r requirements.txt
+```
+
+- 使い方
+```bash
+# 環境に入るとき
+
+# mac/ubuntuの場合
+source venv/bin/activate
+# windowsの場合
+venv¥Script¥activate
+
+# 環境から出るとき
+deactivate
+```
+
+#### Anacondaの場合
+
+- 下記コマンドで作成（5分以上かかります）
+
+```bash
 conda env create -f environment.yml
 
 # doneと表示されたのち、下記コマンドで「toio_rl」があればOK
-conda env list
+(toio_rl) <User>@<Host>:~ > conda env list
 # conda environments:
 #
 toio_rl               *  /home/staff/<User>/.conda/envs/toio_rl
 base                     /usr/local/anaconda3
 python311                /usr/local/anaconda3/envs/python311
+```
 
+- 使い方
+```bash
 # 環境に入るとき
 conda activate toio_rl
 
@@ -251,37 +259,8 @@ conda activate toio_rl
 conda deactivate
 ```
 
-### venvを使う場合
-
-- `py -3.11`や`python3.11`を使う場合は，`python`を置き換えてください
-
-```bash
-# venvが存在するか確認
-python -m venv -h
-usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear] [--upgrade] [--without-pip]
-            [--prompt PROMPT] [--upgrade-deps]
-            ENV_DIR [ENV_DIR ...]
-
-# 仮想環境に入る
-# mac/ubuntuの場合
-source venv/bin/activate
-# windows（コマンドプロンプト）の場合
-venv\Scripts\activate
-# windows（powershell）の場合
-venv\Scripts\activate.ps1
-
-# パッケージをインストール
-pip install -r requirements.txt
-
-# 環境から出るとき
-deactivate
-```
-
 ---
 ## 補足
-
-
-
 
 ## VSCode実行時（mac）
 - コード実行時に下記の表示が出る場合は「許可」
@@ -328,13 +307,3 @@ package, recreate your virtual environment.
 - 最悪時の対処法：組み込み版を使用
   - https://note.com/maru_5251/n/n6664cef94f8d
   - 注意：通常のインストールより手間がかかります
-
-## toioに繋がらない
-
-いくつかの可能性が考えられます
-
-- toioの電源が入っていない
-- PCのBluetoothがoffになっている
-- toioのIDを打ち間違えている
-- コードが間違っている
-
