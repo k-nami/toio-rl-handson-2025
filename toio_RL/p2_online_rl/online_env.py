@@ -45,6 +45,7 @@ class OnlineEnv:
         life_range: Tuple[int, int] = (1, 6),
         agent_name: str = "",
         target_name: Optional[str] = None,
+        render_mode: Optional[str] = "ansi",
     ) -> None:
         if not agent_name:
             raise ValueError("agent_nameを設定してください")
@@ -69,6 +70,7 @@ class OnlineEnv:
         self._rng: Optional[np.random.Generator] = None
         # デバッグ処理向け
         self._fail_flag: Dict[str, bool] = {}
+        self.render_mode = render_mode
 
     async def reset(
         self, seed: Optional[int] = None, options: Optional[Dict[str, Any]] = None
@@ -107,12 +109,12 @@ class OnlineEnv:
         """Convert Toio mat cell coordinate back to grid coordinate."""
         return (cell[0] + self.OFFSET_X, cell[1] + self.OFFSET_Y)
 
-    def render(self, mode: str = "string") -> Optional[str]:
+    def render(self) -> Optional[str]:
         """
         Render grid to console as string.
         """
-        if mode != "string":
-            return None
+        if self.render_mode != "ansi":
+            return NotImplemented
         grid = [["." for _ in range(self.grid_width)] for _ in range(self.grid_height)]
         ax, ay = self._agent_pos
         tx, ty = self._target_pos

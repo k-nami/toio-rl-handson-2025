@@ -25,6 +25,7 @@ class OfflineEnv:
         grid_width: int = 7,
         grid_height: int = 5,
         life_range: Tuple[int, int] = (1, 6),
+        render_mode: Optional[str] = "ansi",
     ) -> None:
         self.grid_width = grid_width
         self.grid_height = grid_height
@@ -39,6 +40,7 @@ class OfflineEnv:
         self._target_life: int = 0
         self._step_count: int = 0
         self._rng: Optional[np.random.Generator] = None
+        self.render_mode = render_mode
 
     def reset(
         self, seed: Optional[int] = None, options: Optional[Dict[str, Any]] = None
@@ -79,11 +81,11 @@ class OfflineEnv:
 
     # ----- utility methods -----
 
-    def render(self, mode: str = "string") -> Optional[str]:
+    def render(self) -> Optional[str]:
         """
         Render grid to console as string.
         """
-        if mode != "string":
+        if self.render_mode != "ansi":
             return None
         grid = [["." for _ in range(self.grid_width)] for _ in range(self.grid_height)]
         ax, ay = self._agent_pos
