@@ -61,7 +61,7 @@ cd toio_RL\p1_toio
 # mac/ubuntuの場合
 cd toio_RL/p1_toio
 
-python connection.py
+python connect_toio.py
 ```
 
 ## 補足資料
