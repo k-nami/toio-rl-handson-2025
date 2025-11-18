@@ -8,6 +8,7 @@
 - VSCode（拡張機能「Python」も推奨），Python3.11.9，venv（またはAnaconda）を準備してください
 - GitHubから演習コードをダウンロードしてください
 - 演習コード内の`requirements.txt`または`environment.yml`で仮想環境を構築してください
+- windowsのターミナルには「コマンドプロンプト」を推奨
 
 ## 内容
 - まず，[計算機ごとの必要作業](#計算機ごとの必要作業)を確認
