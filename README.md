@@ -19,8 +19,10 @@
 python -m venv venv
 
 # 仮想環境に入る
-# windowsの場合
+# windowsの場合（コマンドプロンプト）
 venv\Scripts\activate
+# windowsの場合（powershell）
+venv\Scripts\activate.ps1
 
 # mac/ubuntuの場合
 source venv/bin/activate
